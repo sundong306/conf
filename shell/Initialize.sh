@@ -15,7 +15,7 @@ mkdir   backup   ;   mv *.repo  backup/
 wget http://mirrors.aliyun.com/repo/Centos-6.repo
 wget http://mirrors.aliyun.com/repo/epel-6.repo
 yum   clean all   ;   yum  makecache
-yum  install  -y    gcc   gcc-c++  make openssl-devel   patch unzip perl  ntp 
+yum  install  -y    gcc   gcc-c++  make openssl-devel   patch unzip perl  ntp git
 
 #### 2  history
 echo 'export HISTFILESIZE=2000' >>/etc/bashrc
