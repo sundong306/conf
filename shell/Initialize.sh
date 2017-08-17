@@ -16,6 +16,7 @@ wget http://mirrors.aliyun.com/repo/Centos-6.repo
 wget http://mirrors.aliyun.com/repo/epel-6.repo
 yum   clean all   ;   yum  makecache
 yum  install  -y    gcc   gcc-c++  make openssl-devel   patch unzip perl  ntp git
+yum  install  -y tree net-tools bind-utils tree sysstat vim-en* lrzsz  iftop tcpdump telnet traceroute
 
 #### 2  history
 echo 'export HISTFILESIZE=2000' >>/etc/bashrc
