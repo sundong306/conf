@@ -41,5 +41,19 @@ cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
 /usr/local/php/sbin/php-fpm  -v
 /usr/local/php/sbin/php-fpm  -c  /etc/php.ini   && echo  $?
 
+#### 4. Chevereto
+#cat /usr/local/nginx/html/img/1.php 
+#<?php
+#    phpinfo();
+#?>
+cd /opt
+yum  install  -y  git  sendmail
+git  clone  https://github.com/Chevereto/Chevereto-Free.git
+cp  -a  Chevereto-Free    /usr/local/html/img
+cd  /usr/local/nginx/conf/
+rm  -rf  nginx.conf   ;  wget    https://raw.githubusercontent.com/sundong306/conf/master/shell/Chevereto/nginx.conf
+/usr/local/nginx/sbin/nginx -t && echo $? && /usr/local/nginx/sbin/nginx
 
+####  5.测试
+#测试前做好域名解析 和 证书配置
 ####  END
