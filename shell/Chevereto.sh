@@ -2,6 +2,7 @@
 ##
 ### only root can run this script.
 ### CentOS  6
+### http://www.senra.me/how-to-install-the-chevereto-a-simple-but-multifunctional-photo-upload-and-share-script/
 if [ $USER != root ]
 then
         echo "only root can run this script!"
