@@ -19,11 +19,10 @@ cd /opt/nginx-1.12.1
 make && echo  $?
 make install &&echo $?
 useradd nginx
-/usr/local/nginx/sbin/nginx  -t
-/usr/local/nginx/sbin/nginx
+/usr/local/nginx/sbin/nginx  -t  && echo $?  &&  /usr/local/nginx/sbin/nginx
 
 ####  2. mysql 5.1
-yum -y install mysql-server mysql mysql-devel 
+yum install   -y  mysql-server mysql mysql-devel 
 service  mysqld  status
 service  mysqld  start
 
