@@ -54,7 +54,8 @@ cd   /usr/local/nginx/html/img/  ; chmod  -R 777   app  content images
 cd  /usr/local/nginx/conf/
 rm  -rf  nginx.conf   ;  wget    https://raw.githubusercontent.com/sundong306/conf/master/shell/Chevereto/nginx.conf
 /usr/local/nginx/sbin/nginx -t && echo $? && /usr/local/nginx/sbin/nginx
-
+mysql -uroot  -e "create database Chevereto"
+mysql -uroot -e "grant all on Chevereto.* to 'Chevereto'@'127.0.0.1' identified by 'Chevereto';"
 
 
 ####  5.测试
