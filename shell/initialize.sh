@@ -19,9 +19,9 @@ yum  install  -y    gcc   gcc-c++  make openssl-devel   patch unzip perl  ntp gi
 yum  install  -y tree net-tools bind-utils tree sysstat vim-en* lrzsz  iftop tcpdump telnet traceroute
 
 #### 2  history
-echo 'export HISTFILESIZE=2000' >>/etc/bashrc
-echo 'export HISTSIZE=2000' >>/etc/bashrc
-echo 'export HISTTIMEFORMAT="%Y%m%d-%H:%M:%S:"' >>/etc/bashrc
+echo 'export HISTTIMEFORMAT="%F %T `whoami` " ' >> /etc/profile
+source /etc/profile
+
 
 #### 3  maxfiles 
 echo 'ulimit -u 65535' >> /etc/profile
