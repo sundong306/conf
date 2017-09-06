@@ -27,8 +27,11 @@ $IPTABLES -t mangle -P FORWARD   ACCEPT
 
 $IPTABLES -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 $IPTABLES -A INPUT -i lo -j ACCEPT
-$IPTABLES -A INPUT -p tcp -m multiport  --dport 22,80,443,444,445  -j ACCEPT
-$IPTABLES -A INPUT -s 118.242.16.50 -p tcp -m multiport  --dport 21,23,25 -j ACCEPT
+$IPTABLES -A INPUT  -s  27.115.99.82   -p tcp --dport  22 -j ACCEPT
+$IPTABLES -A INPUT  -s  118.242.16.50  -p tcp --dport  22 -j ACCEPT
+$IPTABLES -A INPUT  -s  adsl1.pook.com -p tcp --dport  22 -j ACCEPT 
+$IPTABLES -A INPUT  -s  adsl2.pook.com -p tcp --dport  22 -j ACCEPT
+$IPTABLES -A INPUT -p tcp -m multiport  --dport 80,443,444,445  -j ACCEPT
 
 ###   service: ssh  web  ss svn icmp
 $IPTABLES -A INPUT -p icmp   -j ACCEPT 
