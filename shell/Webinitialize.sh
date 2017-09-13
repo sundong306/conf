@@ -1,6 +1,7 @@
 #!/bin/bash
 ##
 ### only root can run this script.
+### must reboot
 ### CentOS  6
 if [ $USER != root ]
 then
