@@ -24,20 +24,11 @@ source /etc/profile
 
 
 #### 3  maxfiles 
-echo 'ulimit -u 65535' >> /etc/profile
-echo 'ulimit -n 65535' >> /etc/profile
-echo 'ulimit -d unlimited' >> /etc/profile
-echo 'ulimit -m unlimited' >> /etc/profile
-echo 'ulimit -s unlimited' >> /etc/profile
-echo 'ulimit -t unlimited' >> /etc/profile
-echo 'ulimit -v unlimited' >> /etc/profile
-echo 'ulimit -S -c unlimited' >> /etc/profile
 echo  "limits.conf update..."
-echo '* soft nproc 65535' >> /etc/security/limits.conf
-echo '* hard nproc 65535' >> /etc/security/limits.conf
-echo '* soft nofile 65535' >> /etc/security/limits.conf
-echo '* hard nofile 65535' >> /etc/security/limits.conf
-source /etc/profile
+cd  /etc/security/
+mv  /etc/security/limits.conf /tmp
+wget  https://raw.githubusercontent.com/sundong306/conf/master/shell/limits.conf
+chmod  644  /etc/security/limits.conf
 
 #### 4  iptables 
 rm  -rf /etc/iptables.sh
