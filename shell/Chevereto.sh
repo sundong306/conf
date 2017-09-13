@@ -22,7 +22,7 @@ cd /opt/nginx-1.13.5
 ./configure --prefix=/usr/local/nginx --with-stream --with-stream_ssl_module --with-http_ssl_module --with-http_v2_module --with-threads --with-http_geoip_module --with-openssl=/opt/openssl-1.0.2l --add-module=/opt/fastdfs-nginx-module/src --add-module=/opt/nginx-module-vts
 make && echo  $?
 make install &&echo $?
-useradd nginx
+useradd nginx  -s /sbin/nologin -M 
 /usr/local/nginx/sbin/nginx  -t  && echo $?  &&  /usr/local/nginx/sbin/nginx
 
 ####  2. mysql 5.1
