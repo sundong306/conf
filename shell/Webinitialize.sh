@@ -18,6 +18,7 @@ wget http://mirrors.aliyun.com/repo/epel-6.repo
 yum   clean all   ;   yum  makecache
 yum  install  -y    gcc   gcc-c++  make openssl-devel   patch unzip perl  ntp git vixie-cron crontabs
 yum  install  -y tree net-tools bind-utils tree sysstat vim-en* lrzsz  iftop tcpdump telnet traceroute
+yum  install  -y which sed curl mtr virt-what python
 
 #### 2  history
 echo 'export HISTTIMEFORMAT="%F %T `whoami` " ' >> /etc/profile
