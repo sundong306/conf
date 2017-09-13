@@ -8,9 +8,9 @@ then
         exit 1
 fi
 
-Release=`awk  '{print $3}'   /etc/redhat-release   |  awk  -F '.'  '{print $1}'`
+Release=`awk  '{print $3}'   /etc/redhat-release`
 case  "$Release" in
-      6)
+      6.[0-9])
               echo  "Release  is OK !"
               ;;
       *)
