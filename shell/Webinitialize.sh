@@ -28,10 +28,13 @@ yum   clean all   ;   yum  makecache
 yum  install  -y    gcc   gcc-c++  make openssl-devel   patch unzip perl   git vixie-cron crontabs
 yum  install  -y tree net-tools bind-utils tree sysstat vim-en* lrzsz  iftop tcpdump telnet traceroute
 yum  install  -y which sed curl mtr virt-what python
+echo -e  " 1  yum is ok  \033[32mDone\033[0m" 
+
 
 #### 2  history
 echo 'export HISTTIMEFORMAT="%F %T `whoami` " ' >> /etc/profile
 source /etc/profile
+echo -e  " 2  history is ok  \033[32mDone\033[0m"
 
 
 #### 3  maxfiles 
@@ -41,6 +44,7 @@ cd  /etc/security/
 mv  /etc/security/limits.conf /tmp
 wget  https://raw.githubusercontent.com/sundong306/conf/master/shell/limits.conf
 chmod  644  /etc/security/limits.conf
+echo -e  " 3  maxfiles  is ok  \033[32mDone\033[0m"
 
 #### 4  iptables 
 rm  -rf /etc/iptables.sh
@@ -49,10 +53,12 @@ wget  https://raw.githubusercontent.com/sundong306/conf/master/shell/iptables.sh
 chmod  u+x   /etc/iptables.sh
 /etc/iptables.sh
 echo /etc/iptables.sh >>/etc/rc.local
+echo -e  " 4  iptables  is ok  \033[32mDone\033[0m"
 
 #### 5  ntpd
 yum   install  -y  ntp && chkconfig ntpd on  && rm -rf  /etc/ntp.conf
 cd  /etc  &&  wget https://raw.githubusercontent.com/sundong306/conf/master/shell/ntp.conf 
 chmod 644  /etc/ntp.conf  &&  service  ntpd  start  
+echo -e  " 5  ntpd is ok  \033[32mDone\033[0m"
 
 ####  END
