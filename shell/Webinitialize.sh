@@ -24,6 +24,7 @@ source /etc/profile
 
 
 #### 3  maxfiles 
+#### http://www.linuxidc.com/Linux/2014-12/110891.htm
 echo  "limits.conf update..."
 cd  /etc/security/
 mv  /etc/security/limits.conf /tmp
