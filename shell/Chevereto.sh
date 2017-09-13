@@ -9,16 +9,17 @@ then
         exit 1
 fi
 
-####  1. nginx 1.12 
-yum install gc gcc gcc-c++ pcre-devel zlib-devel make wget openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel gperftools gperftools-devel libatomic_ops-devel perl-ExtUtils-Embed dpkg-dev libpcrecpp0 libgd2-xpm-dev libgeoip-dev libperl-dev -y
+####  1. nginx 1.13 
 yum install gc gcc gcc-c++ pcre-devel zlib-devel make wget openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel gperftools gperftools-devel libatomic_ops-devel perl-ExtUtils-Embed dpkg-dev libpcrecpp0 libgd2-xpm-dev libgeoip-dev libperl-dev -y
 yum install git g++ make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev libjemalloc-dev cython python3-dev python-setuptools
 cd /opt 
 wget  https://www.openssl.org/source/openssl-1.0.2l.tar.gz
-wget http://nginx.org/download/nginx-1.12.1.tar.gz
-tar zxf   openssl-1.0.2l.tar.gz  ; tar zxf  nginx-1.12.1.tar.gz
-cd /opt/nginx-1.12.1 
-./configure --prefix=/usr/local/nginx --with-stream  --with-http_ssl_module --with-http_v2_module  --with-openssl=/opt/openssl-1.0.2l
+wget http://nginx.org/download/nginx-1.13.5.tar.gz
+git clone https://github.com/happyfish100/fastdfs-nginx-module.git
+git clone git://github.com/vozlt/nginx-module-vts.git
+tar zxf   openssl-1.0.2l.tar.gz  ; tar zxf  nginx-1.13.5
+cd /opt/nginx-1.13.5
+./configure --prefix=/usr/local/nginx --with-stream --with-stream_ssl_module --with-http_ssl_module --with-http_v2_module --with-threads --with-http_geoip_module --with-openssl=/opt/openssl-1.0.2l --add-module=/opt/fastdfs-nginx-module/src --add-module=/opt/nginx-module-vts
 make && echo  $?
 make install &&echo $?
 useradd nginx
