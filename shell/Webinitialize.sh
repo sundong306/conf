@@ -1,13 +1,22 @@
 #!/bin/bash
 ##
 ### only root can run this script.
-### must reboot
 ### CentOS  6
 if [ $USER != root ]
 then
         echo "only root can run this script!"
         exit 1
 fi
+
+Release=`awk  '{print $3}'   /etc/redhat-release   |  awk  -F '.'  '{print $1}'`
+case  "$Release" in
+      6)
+              echo  "Release  is OK !"
+              ;;
+      *)
+          echo "there is no wget-package for this releases."
+          exit 1
+esac
 
 #### 1  yum
 cd  /etc/yum.repos.d
