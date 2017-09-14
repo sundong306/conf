@@ -55,7 +55,7 @@ wget  https://raw.githubusercontent.com/sundong306/conf/master/zabbix/Server/zab
 chmod 644  /etc/zabbix/zabbix_*.conf
 sed -i "s/;date.timezone =/date.timezone =Asia\/Shanghai/g" /etc/php.ini
 systemctl start  zabbix-agent ; systemctl start  zabbix-server ; systemctl start  httpd 
-Port=`lsof -i:80 && lsof -i:10050 && lsof -i:10051`
+lsof -i:80 && lsof -i:10050 && lsof -i:10051 && echo $?
 echo "设置开机启动"
 systemctl on  zabbix-agent ; systemctl on  zabbix-server ; systemctl on  httpd ; systemctl on mysqld
 
