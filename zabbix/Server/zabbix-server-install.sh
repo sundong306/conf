@@ -57,7 +57,7 @@ sed -i "s/;date.timezone =/date.timezone =Asia\/Shanghai/g" /etc/php.ini
 systemctl start  zabbix-agent ; systemctl start  zabbix-server ; systemctl start  httpd 
 lsof -i:80 && lsof -i:10050 && lsof -i:10051 && echo $?
 echo "设置开机启动"
-systemctl on  zabbix-agent ; systemctl on  zabbix-server ; systemctl on  httpd ; systemctl on mysqld
+systemctl enable  zabbix-agent ; systemctl enable  zabbix-server ; systemctl enable  httpd ; systemctl enable  mysqld
 
 
 #### 3. echo 
