@@ -48,7 +48,7 @@ echo "grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabb
 echo "flush privileges;" | mysql -uroot -p123321
 sleep 3
 cd /usr/share/doc/zabbix-server-mysql-3.4.1/
-zcat create.sql.gz | mysql -uroot zabbix
+zcat create.sql.gz | mysql -uroot   -p123321 zabbix
 cd /etc/zabbix &&  mv  zabbix_server.conf  zabbix_server.conf.bak &&  mv  zabbix_agentd.conf zabbix_agentd.conf.bak
 wget  https://raw.githubusercontent.com/sundong306/conf/master/zabbix/Server/zabbix_server.conf
 wget  https://raw.githubusercontent.com/sundong306/conf/master/zabbix/Server/zabbix_agentd.conf
