@@ -24,12 +24,12 @@ echo "本机系统为:$Redhat"
 echo "本机ip为:$Hostip"
 sleep 10
 
+cd /opt ; wget https://raw.githubusercontent.com/sundong306/conf/master/shell/Webinitialize.sh
+chmod u+x Webinitialize.sh ; /opt/Webinitialize.sh
 
 #### 1. install  
-yum  install -y gcc   gcc-c++  make openssl-devel   patch unzip perl   git vixie-cron crontabs
-yum  install -y tree net-tools bind-utils tree sysstat vim-en* lrzsz  iftop tcpdump telnet traceroute
-yum  install -y trousers   gnutls  wget lsof
 mkdir -p /root/install/  && cd   /root/install/
+
 wget http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-2.el7.noarch.rpm
 rpm -ivh  zabbix-release-3.4-2.el7.noarch.rpm
 yum install zabbix-server-mysql zabbix-web-mysql  zabbix-agent  -y
