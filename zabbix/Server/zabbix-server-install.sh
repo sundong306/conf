@@ -28,7 +28,7 @@ sleep 10
 #### 1. install  
 yum  install -y gcc   gcc-c++  make openssl-devel   patch unzip perl   git vixie-cron crontabs
 yum  install -y tree net-tools bind-utils tree sysstat vim-en* lrzsz  iftop tcpdump telnet traceroute
-yum  install -y trousers   gnutls  wget
+yum  install -y trousers   gnutls  wget lsof
 mkdir -p /root/install/  && cd   /root/install/
 wget http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-2.el7.noarch.rpm
 rpm -ivh  zabbix-release-3.4-2.el7.noarch.rpm
