@@ -1,38 +1,43 @@
 #!/bin/bash
 ##
 ### only root can run this script.
-### CentOS  6
+### CentOS  6 7
 if [ $USER != root ]
 then
         echo "only root can run this script!"
         exit 1
 fi
 
-Release=`cat /etc/redhat-release | awk -F "release" '{print $2}' |awk -F "." '{print $1}' |sed 's/ //g'`
-case  "$Release" in
-      6)
-                echo  "Release  is OK !"
-              ;;
-      *)
-                echo "only CentOS  6 can run this script!"
-                exit 1
-esac
-
 #### 1  yum
+yum  install  -y gcc   gcc-c++  make openssl-devel   patch unzip perl   git vixie-cron crontabs
+yum  install  -y tree net-tools bind-utils tree sysstat vim-en* lrzsz  iftop tcpdump telnet traceroute
+yum  install  -y which sed curl mtr virt-what python trousers   gnutls  wget lsof
 cd  /etc/yum.repos.d
 yum   install   wget   -y
 mkdir   backup   ;   mv *.repo  backup/
-wget http://mirrors.aliyun.com/repo/Centos-6.repo
-wget http://mirrors.aliyun.com/repo/epel-6.repo
+Release=`cat /etc/redhat-release | awk -F "release" '{print $2}' |awk -F "." '{print $1}' |sed 's/ //g'`
+case  "$Release" in
+      6)
+                wget http://mirrors.aliyun.com/repo/Centos-6.repo
+                wget http://mirrors.aliyun.com/repo/epel-6.repo
+                echo  "Release  is CentOS  6 !"
+              ;;
+      7)
+                wget http://mirrors.aliyun.com/repo/Centos-7.repo
+                wget http://mirrors.aliyun.com/repo/epel-7.repo
+                echo  "Release  is CentOS  7 !"
+              ;;
+              
+      *)
+                echo "only CentOS  6 or  7  can run this script!"
+                exit 1
+esac
 yum   clean all   ;   yum  makecache
-yum  install  -y    gcc   gcc-c++  make openssl-devel   patch unzip perl   git vixie-cron crontabs
-yum  install  -y tree net-tools bind-utils tree sysstat vim-en* lrzsz  iftop tcpdump telnet traceroute
-yum  install  -y which sed curl mtr virt-what python
 echo -e  " 1  yum is ok  \033[32mDone\033[0m" 
 
 
 #### 2  history
-echo 'export HISTTIMEFORMAT="%F %T `whoami` " ' >> /etc/profile
+grep HISTTIMEFORMAT /etc/profile ||  echo 'export HISTTIMEFORMAT="%F %T `whoami` " ' >> /etc/profile
 source /etc/profile
 echo -e  " 2  history is ok  \033[32mDone\033[0m"
 
