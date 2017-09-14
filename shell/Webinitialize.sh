@@ -8,14 +8,14 @@ then
         exit 1
 fi
 
-Release=`awk  '{print $3}'   /etc/redhat-release`
+Release=`cat /etc/redhat-release | awk -F "release" '{print $2}' |awk -F "." '{print $1}' |sed 's/ //g'`
 case  "$Release" in
-      6.[0-9])
-              echo  "Release  is OK !"
+      6)
+                echo  "Release  is OK !"
               ;;
       *)
-          echo "there is no wget-package for this releases."
-          exit 1
+                echo "only CentOS  6 can run this script!"
+                exit 1
 esac
 
 #### 1  yum
