@@ -36,4 +36,4 @@ $IPTABLES -A INPUT -p tcp -m multiport  --dport 80,443,444,445  -j ACCEPT
 
 ###   service: ssh  web  ss svn icmp
 $IPTABLES -A INPUT -p icmp   -j ACCEPT 
-$IPTABLES -A INPUT -p tcp --dport 1024:65535 -j ACCEPT
+$IPTABLES -A INPUT -p tcp --dport 10050:65535 -j ACCEPT
