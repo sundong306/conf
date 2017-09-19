@@ -17,7 +17,7 @@ wget  https://www.openssl.org/source/openssl-1.0.2l.tar.gz
 wget http://nginx.org/download/nginx-1.13.5.tar.gz
 git clone https://github.com/happyfish100/fastdfs-nginx-module.git
 git clone git://github.com/vozlt/nginx-module-vts.git
-tar zxf   openssl-1.0.2l.tar.gz  ; tar zxf  nginx-1.13.5
+tar zxf   openssl-1.0.2l.tar.gz  ; tar zxf  nginx-1.13.5.tar.gz
 cd /opt/nginx-1.13.5
 ./configure --prefix=/usr/local/nginx --with-stream --with-stream_ssl_module --with-http_ssl_module --with-http_v2_module --with-threads --with-http_geoip_module --with-openssl=/opt/openssl-1.0.2l --add-module=/opt/fastdfs-nginx-module/src --add-module=/opt/nginx-module-vts
 make && echo  $?
