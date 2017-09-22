@@ -10,9 +10,13 @@ fi
 Release=`cat /etc/redhat-release | awk -F "release" '{print $2}' |awk -F "." '{print $1}' |sed 's/ //g'`
 case  "$Release" in
 	6)
+		cd /opt
+		rpm  -ivh    http://repo.zabbix.com/zabbix/3.4/rhel/6/x86_64/zabbix-release-3.4-1.el6.noarch.rpm
 		echo  "Release  is OK !"
               ;;
 	7)
+		cd /opt
+		rpm  -ivh    http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-2.el7.noarch.rpm
 		echo  "Release  is OK !"
               ;;
 	*)
@@ -32,8 +36,6 @@ cd /opt ; wget https://raw.githubusercontent.com/sundong306/conf/master/shell/We
 chmod u+x Webinitialize.sh ; /opt/Webinitialize.sh
 
 #### 1. install  
-cd /opt
-rpm  -ivh    http://repo.zabbix.com/zabbix/3.4/rhel/6/x86_64/zabbix-release-3.4-1.el6.noarch.rpm
 yum clean all  ; yum  makecache
 yum install zabbix-agent  -y
 [ $?  = 0  ] || exit 1 
