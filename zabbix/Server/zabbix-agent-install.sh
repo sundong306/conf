@@ -8,6 +8,20 @@ then
 fi
 
 Release=`cat /etc/redhat-release | awk -F "release" '{print $2}' |awk -F "." '{print $1}' |sed 's/ //g'`
+
+
+Redhat=`cat /etc/redhat-release`
+Hostip=`curl -s https://api.ip.sb/ip`
+
+echo "本机系统为:$Redhat"
+echo "本机ip为:$Hostip"
+sleep 10
+
+#### 0. initialize
+cd /opt ; wget https://raw.githubusercontent.com/sundong306/conf/master/shell/Webinitialize.sh
+chmod u+x Webinitialize.sh ; /opt/Webinitialize.sh
+
+#### 1. install
 case  "$Release" in
 	6)
 		cd /opt
@@ -23,19 +37,6 @@ case  "$Release" in
 		echo "only CentOS  6  7  can run this script!"
 		exit 1
 esac
-
-Redhat=`cat /etc/redhat-release`
-Hostip=`curl -s https://api.ip.sb/ip`
-
-echo "本机系统为:$Redhat"
-echo "本机ip为:$Hostip"
-sleep 10
-
-#### 0. initialize
-cd /opt ; wget https://raw.githubusercontent.com/sundong306/conf/master/shell/Webinitialize.sh
-chmod u+x Webinitialize.sh ; /opt/Webinitialize.sh
-
-#### 1. install  
 yum clean all  ; yum  makecache
 yum install zabbix-agent  -y
 [ $?  = 0  ] || exit 1 
