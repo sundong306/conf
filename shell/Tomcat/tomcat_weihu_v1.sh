@@ -1,6 +1,8 @@
 #!/bin/bash
 
-####
+###sundong306@foxmail.com
+###
+###interfacelist.txt 包含ip project
 Program_path=/home/gcweb/crontab
 
 ####
