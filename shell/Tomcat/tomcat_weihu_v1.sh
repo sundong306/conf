@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###sundong306@foxmail.com
-###
+###通过 rsync 密钥的方式 同步文件 
 ###interfacelist.txt 包含ip project
 Program_path=/home/gcweb/crontab
 
