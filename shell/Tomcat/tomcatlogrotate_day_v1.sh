@@ -3,6 +3,7 @@
 ####sundong306@foxmail.com
 ####按日切割 tomcat catalina.out的日志 
 ####tomcatlogrotata.conf  见附件
+####记录到 /var/log/messages
 
 /usr/sbin/logrotate -f /etc/tomcatlogrotata.conf >/dev/null 2>&1
 EXITVALUE=$?
