@@ -47,14 +47,14 @@ echo -e  " 2  history is ok  \033[32mDone\033[0m"
 echo  "limits.conf update..."
 cd  /etc/security/
 mv  /etc/security/limits.conf /tmp
-wget  https://raw.githubusercontent.com/sundong306/conf/master/shell/limits.conf
+wget  https://raw.githubusercontent.com/sundong306/conf/master/shell/Install/limits.conf
 chmod  644  /etc/security/limits.conf
 echo -e  " 3  maxfiles  is ok  \033[32mDone\033[0m"
 
 #### 4  iptables 
 rm  -rf /etc/iptables.sh
 cd  /etc/
-wget  https://raw.githubusercontent.com/sundong306/conf/master/shell/iptables.sh
+wget  https://raw.githubusercontent.com/sundong306/conf/master/shell/Install/iptables.sh
 chmod  u+x   /etc/iptables.sh
 /etc/iptables.sh
 echo /etc/iptables.sh >>/etc/rc.local
@@ -62,7 +62,7 @@ echo -e  " 4  iptables  is ok  \033[32mDone\033[0m"
 
 #### 5  ntpd
 yum   install  -y  ntp && chkconfig ntpd on  && rm -rf  /etc/ntp.conf
-cd  /etc  &&  wget https://raw.githubusercontent.com/sundong306/conf/master/shell/ntp.conf 
+cd  /etc  &&  wget https://raw.githubusercontent.com/sundong306/conf/master/shell/Install/ntp.conf 
 chmod 644  /etc/ntp.conf  &&  service  ntpd  start  
 echo -e  " 5  ntpd is ok  \033[32mDone\033[0m"
 
