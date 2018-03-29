@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 IPTABLES=/sbin/iptables
 
 $IPTABLES -F -t filter
