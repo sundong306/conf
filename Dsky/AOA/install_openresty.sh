@@ -1,5 +1,5 @@
 cd  /tmp ;  wget https://openresty.org/download/openresty-1.11.2.5.tar.gz
-apt-get install libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make build-essential
+apt-get install -y   libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make build-essential
 tar -zxvf openresty-1.11.2.5.tar.gz
 cd openresty-1.11.2.5
 ./configure --prefix=/opt/openresty --with-luajit --without-http_redis2_module --with-http_iconv_module
