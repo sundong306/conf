@@ -1,3 +1,4 @@
+#!/bin/bash
 cd  /tmp ;  wget https://openresty.org/download/openresty-1.11.2.5.tar.gz
 apt-get install -y   libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make build-essential
 tar -zxvf openresty-1.11.2.5.tar.gz
