@@ -9,7 +9,7 @@ apt-get update
 apt-get install zabbix-agent
 sed  -i   '/#/d;/^$/d'  /etc/zabbix/zabbix_agentd.conf 
 sed  -i  's/Server=127.0.0.1/Server=10.0.4.11/g'  /etc/zabbix/zabbix_agentd.conf
-sed  -i  's/ServerActive=123.207.237.245/ServerActive=10.0.4.11/g'   /etc/zabbix/zabbix_agentd.conf
+sed  -i  's/ServerActive=127.0.0.1/ServerActive=10.0.4.11/g'   /etc/zabbix/zabbix_agentd.conf
 sed  -i  "s/Hostname=Zabbix server/Hostname=${Name}/g" /etc/zabbix/zabbix_agentd.conf
 echo "HostMetadataItem=system.uname"   >> /etc/zabbix/zabbix_agentd.conf
 service  zabbix-agent restart
