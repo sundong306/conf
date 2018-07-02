@@ -135,6 +135,9 @@ else
 	check_ok
 fi
 
+#selinux  
+setenforce 0
+
 
 echo   -e  "Succ :\033[32m           $OS Server initialized successfully !   Please exit and sign in again   \033[0m\t"
 ##end
