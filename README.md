@@ -2,9 +2,9 @@
 Save your personal profile
 
 
-1.nagios  
+1.Pooks  
 
-2.nginx
+2.download
 
 
 echo "# conf" >> README.md
