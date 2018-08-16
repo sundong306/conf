@@ -38,6 +38,7 @@ ServerActive=10.4.0.17
 Include=/data/app/zabbix/etc/zabbix_agentd.conf.d/*.conf
 HostMetadataItem=system.uname
 Timeout=8
+UnsafeUserParameters=1
 EOF
 /data/app/zabbix/sbin/zabbix_agentd -c /data/app/zabbix/etc/zabbix_agentd.conf   ;  lsof  -i:10050
 echo "/data/app/zabbix/sbin/zabbix_agentd -c /data/app/zabbix/etc/zabbix_agentd.conf" >> /etc/rc.local
