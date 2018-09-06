@@ -1,10 +1,17 @@
+wget http://ftp.gnu.org/gnu/glibc/glibc-2.15.tar.gz
+wget http://ftp.gnu.org/gnu/glibc/glibc-ports-2.15.tar.gz
+tar -zxf glibc-2.15.tar.gz
+tar -zxf glibc-ports-2.15.tar.gz
+mv glibc-ports-2.15 glibc-2.15/ports
+mkdir glibc-build-2.15
+cd glibc-build-2.15
+../glibc-2.15/configure --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin
+make all && make install
+
+ldd --version
 
 
 wget https://raw.githubusercontent.com/kuoruan/shell-scripts/master/ovz-bbr/ovz-bbr-installer.sh
 chmod +x ovz-bbr-installer.sh
 ./ovz-bbr-installer.sh
 
-作者：不着调的小男生
-链接：https://www.jianshu.com/p/78bf7fa24e5e
-來源：简书
-简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
