@@ -2,7 +2,7 @@
 Save your personal profile
 
 
-1.Pooks  
+1.pook  
 
 2.download
 
