@@ -35,3 +35,4 @@ cd  nginx-1.15.9
 make  && make  install
 useradd  -M   -s /sbin/nologin  www
 /usr/local/nginx/sbin/nginx  -V
+cd  /usr/bin ；  rm -rf  nginx  ;  ln -s  /usr/local/nginx/sbin/nginx  nginx
