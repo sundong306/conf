@@ -1,5 +1,5 @@
 #!/bin/bash
-portarray=(`netstat -tnlp  | grep  java |  grep  -E  "\:8|\:9"  |egrep -i "$1"|awk {'print $4'}|awk -F':' '{if ($NF~/^[0-9]*$/) print $NF}'|sort|uniq `)
+portarray=(`netstat -tnlp   |egrep -i "$1"|awk {'print $4'}|awk -F':' '{if ($NF~/^[0-9]*$/) print $NF}'|sort|uniq `)
 length=${#portarray[@]}
 printf "{\n"
 printf  '\t'"\"data\":["
