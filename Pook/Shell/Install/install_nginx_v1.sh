@@ -32,8 +32,8 @@ yum install  -y  pcre*  zlib*    gcc     openssl  openssl-devel  libxml*  libxsl
 
 ##安装nginx
 cd /opt ;  wget  https://www.openssl.org/source/openssl-1.1.1b.tar.gz  ; tar zxf  openssl-1.1.1b.tar.gz 
-cd  openssl-1.1.1b ;  ./config  ; make ;  make install ; openssl version
-#cd  openssl-1.1.1b ;  openssl version
+#cd  openssl-1.1.1b ;  ./config  ; make ;  make install ; openssl version
+cd  openssl-1.1.1b ;  /opt/openssl-1.1.1b/.openssl/bin/openssl version
 cd /opt  ;  wget  https://nginx.org/download/nginx-1.15.9.tar.gz  ;tar  zxf  nginx-1.15.9.tar.gz 
 cd  nginx-1.15.9
 

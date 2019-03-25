@@ -10,7 +10,7 @@
 ##nginx 1.12.2	/data/app/nginx
 ##php   7.2.4	/data/app/php
 ##redis 3.0.3	/data/app/redis
-##JDK   1.8.171 /opt/jdk1.8.0_171/
+##JDK   1.8.171 /opt/jdk1.8.0_201/
 ##tomcat8.5.30	/data/app/tomcat
 
 ##确认是否安装
@@ -82,14 +82,14 @@ wget  http://nginx.org/download/nginx-1.12.2.tar.gz
 wget  http://cn2.php.net/distributions/php-7.2.4.tar.gz
 wget  http://download.redis.io/releases/redis-3.0.3.tar.gz
 #wget -O jdk-8u161-linux-x64.tar.gz --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz
-wget  https://pooks.cn/download/jdk-8u171-linux-x64.tar.gz
+wget  https://pooks.cn/download/jdk-8u201-linux-x64.tar.gz
 wget  https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
 tar   zxf	mysql-boost-5.7.18.tar.gz
 tar   zxf	nginx-1.12.2.tar.gz  
 tar   zxf	php-7.2.4.tar.gz
 tar   zxf	redis-3.0.3.tar.gz
 tar   zxf	apache-tomcat-8.5.30.tar.gz 
-tar   zxf	jdk-8u171-linux-x64.tar.gz
+tar   zxf	jdk-8u201-linux-x64.tar.gz
 check_ok
 ##
 groupadd -r mysql && useradd -r -g mysql -s /sbin/nologin -M mysql
@@ -246,7 +246,7 @@ echo   -e  "Succ :\033[32m    5.  Redis 3.0   has installed   successfully !    
 
 ##6.安装tomcat 8
 echo   -e  "\033[32m     6.   开始安装Tomcat.......................   \033[0m\t"
-echo   'export JAVA_HOME=/opt/jdk1.8.0_171/'  >>  /etc/profile
+echo   'export JAVA_HOME=/opt/jdk1.8.0_201/'  >>  /etc/profile
 echo   'export CATALINA_BASE=/data/app/tomcat/'  >>  /etc/profile
 echo   'export CATALINA_HOME=/data/app/tomcat/'  >>  /etc/profile
 echo   'export CLASSPATH=.:$JAVA_HOME/lib'  >> /etc/profile
@@ -256,7 +256,7 @@ java -version  && check_ok
 cp -a   /opt/apache-tomcat-8.5.30    /data/app/tomcat
 chown -R www-data.www-data  /data/app/tomcat
 cat >  /data/app/tomcat/bin/setenv.sh  <<EOF
-JAVA_HOME=/opt/jdk1.8.0_171/
+JAVA_HOME=/opt/jdk1.8.0_201/
 CATALINA_PID="$CATALINA_BASE/tomcat.pid"
 JAVA_OPTS="-server -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m"
 EOF
