@@ -6,6 +6,7 @@
 # install zabbix server   4.0
 #
 ########################################
+
 ##root
 if [ $USER != root ]
 then
@@ -31,7 +32,8 @@ wget  https://raw.githubusercontent.com/sundong306/conf/master/download/pooks_za
 wget  https://raw.githubusercontent.com/sundong306/conf/master/download/pooks_httpd_zabbix.conf  -O  /etc/httpd/conf.d/zabbix.conf
 
 ###
-cd /usr/share/zabbix/fonts
+mkdir  /usr/share/zabbix/fonts
+cd  /usr/share/zabbix/fonts
 wget https://github.com/sundong306/conf/raw/master/download/msyh.ttf
 cd  /etc/alternatives/  ;  rm  -rf  zabbix-frontend-font  zabbix-web-font   
 ln -s /usr/share/zabbix/fonts/msyh.ttf zabbix-frontend-font  
@@ -44,6 +46,5 @@ systemctl enable zabbix-server zabbix-agent httpd  mysqld
 
 IP=`curl  -s  ip.sb`
 echo      "访问 http://$IP/zabbix   完成安装zabbix server  4.0"
-
 
 
