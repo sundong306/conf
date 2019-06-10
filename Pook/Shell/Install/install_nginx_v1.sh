@@ -28,17 +28,36 @@ exit 1
 fi
 }
 
-yum install  -y  pcre*  zlib*    gcc     openssl  openssl-devel  libxml*  libxslt*   gd-devel  GeoIP GeoIP-data GeoIP-devel  perl-devel perl-ExtUtils-Embed  gcc-c++
+# 变量
+nginx_version=1.16.0
+nginx_download=/opt
+nginx_home=/data/app/nginx
+mkdir  -p  ${nginx_home}
 
-##安装nginx
-cd /opt ;  wget  https://www.openssl.org/source/openssl-1.1.1b.tar.gz  ; tar zxf  openssl-1.1.1b.tar.gz 
-#cd  openssl-1.1.1b ;  ./config  ; make ;  make install ; openssl version
-cd  openssl-1.1.1b ;  /opt/openssl-1.1.1b/.openssl/bin/openssl version
-cd /opt  ;  wget  https://nginx.org/download/nginx-1.15.9.tar.gz  ;tar  zxf  nginx-1.15.9.tar.gz 
-cd  nginx-1.15.9
+# yum
+yum install -y pcre-devel zlib-devel openssl-devel   gd-devel  GeoIP GeoIP-data GeoIP-devel   perl-ExtUtils-Embed  gcc-c++
 
-./configure  --prefix=/usr/local/nginx --user=www --group=www  --with-http_ssl_module  --with-stream  --with-stream_realip_module   --with-http_v2_module   --with-openssl=/opt/openssl-1.1.1b    --with-openssl-opt='enable-tls1_3 enable-weak-ssl-ciphers'
-make  && make  install
+# openssl
+cd ${nginx_download}
+wget  https://www.openssl.org/source/openssl-1.1.1b.tar.gz  ; tar zxf  openssl-1.1.1b.tar.gz 
+cd  openssl-1.1.1b ;  ./config  ; make ;  make install ; /opt/openssl-1.1.1b/openssl version
+
+# nginx
+cd ${nginx_download}
+wget http://nginx.org/download/nginx-${nginx_version}.tar.gz
+tar zxf  nginx-${nginx_version}.tar.gz
+cd ./nginx-${nginx_version}
+
+# make
+./configure --prefix=${nginx_home} --user=www --group=www  --with-http_ssl_module  --with-stream  --with-stream_realip_module   --with-http_v2_module   --with-openssl=/opt/openssl-1.1.1b
+make & make install
+check_ok
 useradd  -M   -s /sbin/nologin  www
-/usr/local/nginx/sbin/nginx  -V
-cd  /usr/bin ；  rm -rf  nginx  ;  ln -s  /usr/local/nginx/sbin/nginx  nginx
+rm -rf  /usr/sbin/nginx
+ln -s ${nginx_home}/sbin/nginx /usr/sbin/nginx
+nginx  -V
+nginx  -t
+
+# config
+#cp ${nginx_home}/conf/nginx.conf ${nginx_home}/conf/nginx.conf.bak
+#wget  https://raw.githubusercontent.com/sundong306/conf/master/download/pooks_http_nginx.conf  -O  ${nginx_home}/conf/nginx.conf 
