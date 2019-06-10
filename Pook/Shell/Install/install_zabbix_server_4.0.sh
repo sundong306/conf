@@ -6,17 +6,6 @@
 # install zabbix server   4.0
 #
 ########################################
-
-##确认是否安装
-echo -e "Are you sure  $0 ?(y or n)"
-read ANS
-if [ "$ANS"a != ya ]
-then
-   echo -e "bye! \n"
-   exit 1
-fi
-
-
 ##root
 if [ $USER != root ]
 then
