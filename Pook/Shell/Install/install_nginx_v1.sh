@@ -30,9 +30,9 @@ fi
 
 # 变量
 nginx_version=1.16.0
-nginx_download=/opt
+nginx_download=/opt/download
 nginx_home=/data/app/nginx
-mkdir  -p  ${nginx_home}
+mkdir  -p  ${nginx_home}   ${nginx_download}
 
 # yum
 yum install -y pcre-devel zlib-devel openssl-devel   gd-devel  GeoIP GeoIP-data GeoIP-devel   perl-ExtUtils-Embed  gcc-c++
