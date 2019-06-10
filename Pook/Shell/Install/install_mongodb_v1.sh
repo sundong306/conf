@@ -50,8 +50,8 @@ lsof -i:27017
 check_ok
 
 ##iptables 
-iptables  -A  INPUT  -s  10.192.147.0/24  -p tcp  --dport 27017  -j ACCEPT
-iptables  -A  INPUT   -p tcp  --dport 27017  -j DROP
+#iptables  -A  INPUT  -s  10.192.147.0/24  -p tcp  --dport 27017  -j ACCEPT
+#iptables  -A  INPUT   -p tcp  --dport 27017  -j DROP
 
 
 
