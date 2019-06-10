@@ -35,13 +35,13 @@ yum install -y pcre-devel zlib-devel openssl-devel   gd-devel  GeoIP GeoIP-data 
 
 # openssl
 cd ${nginx_download}
-#wget  https://www.openssl.org/source/openssl-1.1.1b.tar.gz  ; tar zxf  openssl-1.1.1b.tar.gz 
-#cd  openssl-1.1.1b ;  ./config  ; make ;  make install ; ./openssl version
+wget  https://www.openssl.org/source/openssl-1.1.1b.tar.gz  ; tar zxf  openssl-1.1.1b.tar.gz 
+cd  openssl-1.1.1b ;  ./config  ; make ;  make install ; ./openssl version
 
 # nginx
 cd ${nginx_download}
-#wget http://nginx.org/download/nginx-${nginx_version}.tar.gz
-#tar zxf  nginx-${nginx_version}.tar.gz
+wget http://nginx.org/download/nginx-${nginx_version}.tar.gz
+tar zxf  nginx-${nginx_version}.tar.gz
 cd ./nginx-${nginx_version}
 
 # make
