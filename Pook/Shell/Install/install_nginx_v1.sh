@@ -57,6 +57,9 @@ rm -rf  /usr/sbin/nginx
 ln -s ${nginx_home}/sbin/nginx /usr/sbin/nginx
 nginx  -V
 nginx  -t
+echo  "`date`"  >  ${nginx_home}/html/1.html
+nginx
+curl    http://localhost/1.html
 
 # config
 #cp ${nginx_home}/conf/nginx.conf ${nginx_home}/conf/nginx.conf.bak
