@@ -40,5 +40,5 @@ check_ok
 
 
 ##iptables  11211
-iptables  -A  INPUT  -s  10.192.147.0/24  -p tcp  --dport 11211  -j ACCEPT
-iptables  -A  INPUT   -p tcp  --dport 11211  -j DROP
+#iptables  -A  INPUT  -s  10.192.147.0/24  -p tcp  --dport 11211  -j ACCEPT
+#iptables  -A  INPUT   -p tcp  --dport 11211  -j DROP
