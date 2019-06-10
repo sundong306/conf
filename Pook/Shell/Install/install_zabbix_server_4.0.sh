@@ -24,7 +24,7 @@ service  mysqld  start
 mysqladmin -u root password "ld@2018"
 /usr/bin/mysql -uroot  -pld@2018  -h127.0.0.1  -e "create database zabbix character set utf8 collate utf8_bin;"
 /usr/bin/mysql -uroot  -pld@2018  -h127.0.0.1  -e "grant all privileges on zabbix.* to zabbix@localhost identified by 'ld@2018';"
-zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | /usr/bin/mysql -uzabbix -p zabbix
+zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | /usr/bin/mysql -uzabbix -p'ld@2018' zabbix
 
 ###
 wget  https://raw.githubusercontent.com/sundong306/conf/master/download/pooks_zabbix_server.conf  -O  /etc/zabbix/zabbix_server.conf
