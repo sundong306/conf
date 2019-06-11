@@ -46,11 +46,24 @@ service  sshd  restart
 }
 
 
+init_ubuntu ()  {
+###############  Ubuntu  初始化
+##history
+echo 'export HISTTIMEFORMAT="%F %T ${USER} "' >> /etc/profile
+source   /etc/profile
+## apt
+apt install lrzsz lsof expect nethogs net-tools ntpdate sysstat dos2unix  tree wget file tcpdump  dstat   fping  iotop mtr rsync  python-pip   -y
+## sshd
+wget  https://raw.githubusercontent.com/sundong306/conf/master/download/pooks_ubuntu_16_04_aliyun_sshd_config -O   /etc/ssh/sshd_config
+service  ssh  restart
+}
+
+
 
 
 #init_centos6
-init_centos7
-
+#init_centos7
+#init_ubuntu
 
 ##swap
 Swapon="`swapon -s  | wc  -l`"
