@@ -6,7 +6,7 @@
 init_centos6 ()  {
 ###############  CentOS  6  初始化	
 ##yum
-cd  /etc/yum.repos.d  ;  mkdir  backup   ;   cp  *repo  backup
+cd  /etc/yum.repos.d  ;  mkdir  backup   ;   mv  *repo  backup
 wget  http://mirrors.aliyun.com/repo/Centos-6.repo
 wget  http://mirrors.aliyun.com/repo/epel-6.repo
 yum clean all 
@@ -16,7 +16,7 @@ echo 'export HISTTIMEFORMAT="%F %T ${USER} "' >> /etc/profile
 source   /etc/profile
 ##tool
 yum install bind-utils dmidecode dstat fping hdparm iotop ipmitool iptraf psmisc mtr rsync nss bash-completion -y 
-yum install lrzsz lsof expect nc nethogs net-tools ntpdate sysstat httpd bc crontabs dos2unix -y 
+yum install lrzsz lsof expect nc nethogs net-tools ntpdate sysstat bc crontabs dos2unix -y 
 yum install sos speedtest-cli stat openssh-clients stat tree wget wireshark file jwhois tcpdump -y
 ##sshd
 wget  https://raw.githubusercontent.com/sundong306/conf/master/download/pooks_centos_6_aliyun_sshd_config -O   /etc/ssh/sshd_config
@@ -28,7 +28,7 @@ service  sshd  restart
 init_centos7 ()  {
 ###############  CentOS  7  初始化	
 ##yum
-cd  /etc/yum.repos.d  ;  mkdir  backup   ;   cp  *repo  backup
+cd  /etc/yum.repos.d  ;  mkdir  backup   ;   mv  *repo  backup
 wget  http://mirrors.aliyun.com/repo/Centos-7.repo
 wget  http://mirrors.aliyun.com/repo/epel-7.repo
 yum clean all 
@@ -38,7 +38,7 @@ echo 'export HISTTIMEFORMAT="%F %T ${USER} "' >> /etc/profile
 source   /etc/profile
 ##tool
 yum install bind-utils dmidecode dstat fping hdparm iotop ipmitool iptraf psmisc mtr rsync nss bash-completion -y 
-yum install lrzsz lsof expect nc nethogs net-tools ntpdate sysstat httpd bc crontabs dos2unix -y 
+yum install lrzsz lsof expect nc nethogs net-tools ntpdate sysstat   bc crontabs dos2unix -y 
 yum install sos speedtest-cli stat openssh-clients stat tree wget wireshark file jwhois tcpdump -y
 ##sshd
 wget  https://raw.githubusercontent.com/sundong306/conf/master/download/pooks_centos_6_aliyun_sshd_config -O   /etc/ssh/sshd_config
