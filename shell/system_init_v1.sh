@@ -105,6 +105,10 @@ function other(){
 	yum groupinstall Development tools -y >/dev/null 2>&1
 	yum install -y vim wget lrzsz telnet traceroute iotop tree >/dev/null 2>&1
 	yum install -y ncftp axel git zlib-devel openssl-devel unzip xz libxslt-devel libxml2-devel libcurl-devel >/dev/null 2>&1
+	yum install lrzsz lsof   sysstat dos2unix tree wget file tcpdump dstat fping iotop mtr rsync   expect  -y
+	yum install  psmisc gc gcc-c++  unzip vim   jq   telnet  -y
+
+	
 	#echo "[安装常用工具] ==> OK"
 	echo "export HOME=/root" >> /etc/profile
 	source /etc/profile
